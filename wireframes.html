@@ -1,0 +1,30 @@
+Bookmarks detailed view
+
+<h2>Title</h2>
+<ul>
+    <li class='url'>url link</li>
+    <li class='description'>description</li class='description'>
+    <li class='rating'>rating</li>
+</ul>
+<button class='delete' type='button'>Delete</button>
+
+Condensed= no description or url
+
+Add bookmark form
+
+<form class='add-bookmark'>
+    <label>Site Name</label>
+    <input class='add-title' type='text' placeholder="e.g. Google" required/>
+    <label>url link</label>
+    <input class='add-url' type='url' placeholder='format: https://' required/>
+    
+    <ul>
+        <li><label for='add-rating'>Rating</label></li>
+        <li><input class='add-rating' type='radio' name='add-rating' value=1 checked/></li>
+        <li><input class='add-rating' type='radio' name='add-rating' value=2 /></li>
+        <li><input class='add-rating' type='radio' name='add-rating' value=3 /></li>
+        <li><input class='add-rating' type='radio' name='add-rating' value=4/></li>
+        <li><input class='add-rating' type='radio' name='add-rating' value=5/></li>
+    </ul>
+    <button class='submit' type='submit'>Submit</button>
+</form>
