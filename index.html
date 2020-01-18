@@ -4,12 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Daniel's Bookmark Bungalow</title>
 </head>
 <header>
     <h1>Bookmark Bungalow</h1>
 </header>
 <body>
-    
+    <section class='filter-section'>
+    <h3>Filter by Rating</h3>
+        <select name='rating' id='rating-select'>
+            <option value="1 Star">1 Star</option>
+            <option value="2 Stars">2 Stars</option>
+            <option value="3 Stars">3 Stars</option>
+            <option value="4 Stars">4 Stars</option>
+            <option value="5 Stars">5 Stars</option>
+        </select>
+        <button class='filter-button' type='submit'>Filter</button>
+    </section>
+    <section class='add-bookmark-form-section'>
+        <button class='open-form' type='button'>New Bookmark</button>
+        <form id='add-bookmark-form' class=''>
+            <label for='add-title'>Site Name</label>
+            <input id='add-title' type='text' placeholder="e.g. Google" required/>
+            <label for='add-url'>url link</label>
+            <input id='add-url' type='url' placeholder='format: https://' required/>
+            <label for='add-description'>Description</label>
+            <input id='add-description' type='text' placeholder='e.g. Search Engine'/>
+            <ul>
+                <label>Rating</label>
+                <li><label for='radio1'>1</label>
+                    <input id='radio1' class='add-rating' type='radio' name='add-rating' value=1 checked/></li>
+                <li><label for='radio2'>2</label>
+                    <input id='radio2' class='add-rating' type='radio' name='add-rating' value=2 /></li>
+                <li><label for='radio3'>3</label>
+                    <input id='radio3' class='add-rating' type='radio' name='add-rating' value=3 /></li>
+                <li><label for='radio4'>4</label>
+                    <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4/></li>
+                <li><label for='radio5'>5</label>
+                    <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5/></li>
+            </ul>
+            <button class='submit' type='submit'>Submit</button>
+            <button class='close-form' type='button'>Close</button>
+        </form>
+    </section>
+    <section class='error-container'>
+
+    </section>
+<section class='bookmark-section'>
+
+</section>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
+    <script type='module' src="scripts/index.js"></script>
 </body>
 </html>
