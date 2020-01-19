@@ -12,19 +12,20 @@
 </header>
 <body>
     <section class='filter-section'>
-    <h3>Filter by Rating</h3>
+    <h3>Filter by Minimum Rating</h3>
         <select name='rating' id='rating-select'>
-            <option value="1 Star">1 Star</option>
-            <option value="2 Stars">2 Stars</option>
-            <option value="3 Stars">3 Stars</option>
-            <option value="4 Stars">4 Stars</option>
-            <option value="5 Stars">5 Stars</option>
+            <option value=1 >1 Star</option>
+            <option value=2 >2 Stars</option>
+            <option value=3 >3 Stars</option>
+            <option value=4 >4 Stars</option>
+            <option value=5 >5 Stars</option>
         </select>
         <button class='filter-button' type='submit'>Filter</button>
+        <button class='clear-filter' type="button">Clear Filter</button>
     </section>
     <section class='add-bookmark-form-section'>
         <button class='open-form' type='button'>New Bookmark</button>
-        <form id='add-bookmark-form' class=''>
+        <form id='add-bookmark-form' class='hidden'>
             <label for='add-title'>Site Name</label>
             <input id='add-title' type='text' placeholder="e.g. Google" required/>
             <label for='add-url'>url link</label>
@@ -40,9 +41,9 @@
                 <li><label for='radio3'>3</label>
                     <input id='radio3' class='add-rating' type='radio' name='add-rating' value=3 /></li>
                 <li><label for='radio4'>4</label>
-                    <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4/></li>
+                    <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4 /></li>
                 <li><label for='radio5'>5</label>
-                    <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5/></li>
+                    <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5 /></li>
             </ul>
             <button class='submit' type='submit'>Submit</button>
             <button class='close-form' type='button'>Close</button>
@@ -51,9 +52,11 @@
     <section class='error-container'>
 
     </section>
-<section class='bookmark-section'>
-
-</section>
+    <section class='bookmark-section'>
+        <ul class='bookmark-ul'>
+    
+        </ul>
+    </section>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
     <script type='module' src="scripts/index.js"></script>
 </body>

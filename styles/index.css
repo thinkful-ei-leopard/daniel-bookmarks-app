@@ -1,3 +1,16 @@
 .hidden {
     display: none;
 }
+
+body {
+    background-image: url('/img/paradise.jpg');
+    background-color: black;
+}
+
+header, .filter-section {
+    text-align: center;
+}
+
+.open-form {
+    text-align: center;
+}

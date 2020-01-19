@@ -5,7 +5,6 @@ let error = null;
 
   //adds bookmark object to store
 const addBookmark = function(bookmark) {
-  debugger
   this.bookmarks.push(bookmark);
 };
 
