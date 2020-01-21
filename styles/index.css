@@ -4,13 +4,100 @@
 
 body {
     background-image: url('/img/paradise.jpg');
-    background-color: black;
 }
 
 header, .filter-section {
     text-align: center;
 }
 
+h1 {
+    font-family: 'Macondo Swash Caps', cursive;
+    font-size: 40px;
+}
+
 .open-form {
     text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.bookmark-li {
+    background-color: rgb(31, 30, 30);
+    color: whitesmoke;
+    text-align: center;
+    border-radius: 20px;
+    opacity: .9;
+}
+
+.bookmark-li {
+    padding-top:0px;
+    padding-bottom: 5px;
+    border-color: black;
+    border-width: 2px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+button {
+    color: rgb(22, 21, 21);
+    border-radius: 5px;
+    height: 30px;
+    border-width: 5px;
+    font-size: 15px;
+    background-color: rgb(236, 236, 234);
+    opacity: 90%;
+}
+
+button:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    background-color: rgb(214, 141, 5);
+    transition: all 0.4s ease 0s;
+}
+
+.add-bookmark-form-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#add-bookmark-form {
+    color: white;
+    background-color: black;
+    margin-top: 20px;
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.add-bookmark-form {
+    margin-top: 10px;
+}
+
+.delete, .rating {
+    display: inline-block;
+}
+
+.delete {
+    margin-left: 5%;
+}
+
+.url {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.error-container {
+    text-align: center;
+    background-color: rgb(226, 70, 70);
+    margin: 3px 32%;
+    border-radius: 5px;
+}
+
+.input-list {
+    margin-top 5px;
+    margin-bottom 5px;
 }

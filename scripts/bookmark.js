@@ -15,10 +15,8 @@ const render = function () {
 //generates error html
 const generateError = function (message) {
     return `
-        <section class="error-content">
           <button id="cancel-error">X</button>
           <p>${message}</p>
-        </section>
       `;
   };
 
@@ -38,6 +36,16 @@ const renderError = function () {
       $('.error-container').empty();
     }
   };
+
+const clearError = function () {
+    $('.error-container').empty();
+};
+
+const handleCancelErrorClick = function() {
+    $('.error-container').on('click', '#cancel-error', function() {
+        clearError();
+    });
+};
 
 //handles click of new bookmark button
 const handleFormOpenClick = function() {
@@ -63,6 +71,7 @@ const handleNewBookmarkSubmission = function() {
         const newBookmarkUrl = $('#add-url').val();
         const newBookmarkDescription = $('#add-description').val();
         const newBookmarkRating = $("input[name='add-rating']:checked").val();
+        console.log(newBookmarkRating);
         api.createBookmark(newBookmarkTitle, newBookmarkUrl, newBookmarkDescription, newBookmarkRating)
             .then((newBookmark) => {
                 console.log(newBookmark)
@@ -99,10 +108,25 @@ const handleBookmarkDeleteClick = function() {
 //displays bookmarks filtered by rating
 const handleBookmarkFilter = function() {
     $('.filter-section').on('click', '.filter-button', function(event) {
-        console.log(store.bookmarks);
         store.bookmarks.forEach(bookmark => filterBookmarks(bookmark));
     });
 };
+
+//handles click on bookmark-li element
+const handleClickOnBookmarkElement = function() {
+    $('.bookmark-ul').on('click', '.bookmark-li', function() {
+        event.preventDefault();
+        let url = $(this).find('.url');
+        reveal(url);
+        let description = $(this).find('.description');
+        reveal(description);
+    });
+    render();
+};
+
+const reveal =  function(element) {
+    element.removeClass('hidden');
+}
 
 //filters Bookmarks based on rating
 const filterBookmarks = function (bookmark) {
@@ -114,16 +138,33 @@ const filterBookmarks = function (bookmark) {
     };
 };
 
+const makeStars = function(rating) {
+    if (rating === 1) {
+        return '&starf;';
+    }
+    else if (rating === 2) {
+        return '&starf;&starf;';
+    }
+    else if (rating === 3) {
+        return '&starf;&starf;&starf;';
+    }
+    else if (rating === 4) {
+        return '&starf;&starf;&starf;&starf;';
+    }
+    else if (rating === 5) {
+        return '&starf;&starf;&starf;&starf;&starf;';
+    }
+}
+
 //generates bookmark element
 const generateBookmarkElement = function(bookmark) {
+    let stars = makeStars(bookmark.rating);
     return `
 <li class='bookmark-li' data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
-    <ul>
-        <li class='url'>${bookmark.url}</li>
-        <li class='description'>${bookmark.description}</li>
-        <li class='rating'>${bookmark.rating}</li>
-    </ul>
+        <a class='url hidden' href=${bookmark.url}>Visit Site</a>
+        <p class='description hidden'>${bookmark.description}</p>
+        <p class='rating'>${stars}</p>
     <button class='delete' type='button'>Delete</button>
 </li>`
 };
@@ -140,6 +181,8 @@ const bindEventListeners = function () {
     handleNewBookmarkSubmission();
     handleFormOpenClick();
     handleFormCloseClick();
+    handleClickOnBookmarkElement();
+    handleCancelErrorClick();
 };
 
 export default {
