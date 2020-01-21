@@ -16,7 +16,7 @@
     <section class='filter-section'>
     <h3>Filter by Minimum Rating</h3>
         <select name='rating' id='rating-select'>
-            <option value=1 >1 Star</option>
+            <option value=1 >None</option>
             <option value=2 >2 Stars</option>
             <option value=3 >3 Stars</option>
             <option value=4 >4 Stars</option>
@@ -29,26 +29,33 @@
         <button class='open-form' type='button'>New Bookmark</button>
         <form id='add-bookmark-form' class='hidden'>
             <ul class='input-list'>
-            <li><label for='add-title'>Site Name</label>
+            <li><label for='add-title'>Site Name  </label>
             <input id='add-title' type='text' placeholder="e.g. Google" required/></li>
-            <li></li><label for='add-url'>URL Link</label>
+            <li><label for='add-url'>URL Link  </label>
             <input id='add-url' type='url' placeholder='format: https://' required/></li>
-            <li></li><label for='add-description'>Description</label>
+            <li><label for='add-description'>Description  </label>
             <input id='add-description' type='text' placeholder='e.g. Search Engine'/></li>
             </ul>
-            <ul class="rating-radio">
-                <p>Rating</p>
-                <li><label class='radio-label' for='radio1'>&starf;</label>
-                    <input id='radio1' class='add-rating' type='radio' name='add-rating' value=1 checked/></li>
-                <li><label class='radio-label' for='radio2'>&starf;&starf;</label>
-                    <input id='radio2' class='add-rating' type='radio' name='add-rating' value=2 /></li>
-                <li><label class='radio-label' for='radio3'>&starf;&starf;&starf;</label>
-                    <input id='radio3' class='add-rating' type='radio' name='add-rating' value=3 /></li>
-                <li><label class='radio-label' for='radio4'>&starf;&starf;&starf;&starf;</label>
-                    <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4 /></li>
-                <li><label class='radio-label' for='radio5'>&starf;&starf;&starf;&starf;&starf;</label>
-                    <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5 /></li>
-            </ul>
+            <fieldset class="rating-radio">
+                <legend>Rating</legend>
+                <label class='radio-label'>
+                    <input id='radio1' class='add-rating' type='radio' name='add-rating' value=1/>
+                    <span>&starf;</span>
+                </label>
+                <label class='radio-label'>
+                    <input id='radio2' class='add-rating' type='radio' name='add-rating' value=2/>
+                    <span>&starf;&starf;</span>
+                </label><label class='radio-label'>
+                    <input id='radio3' class='add-rating' type='radio' name='add-rating' value=3 checked/>
+                    <span>&starf;&starf;&starf;</span>
+                </label><label class='radio-label'>
+                    <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4/>
+                    <span>&starf;&starf;&starf;&starf;</span>
+                </label><label class='radio-label'>
+                    <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5/>
+                    <span>&starf;&starf;&starf;&starf;&starf;</span>
+                </label>
+            </fieldset>
             <button class='submit' type='submit'>Submit</button>
             <button class='close-form' type='button'>Close</button>
         </form>

@@ -20,8 +20,16 @@ h1 {
     font-size: 40px;
 }
 
+h2 {
+    margin-bottom: 7px;
+}
+
 .open-form {
     text-align: center;
+}
+
+.description {
+    margin-bottom: -5px;
 }
 
 ul {
@@ -48,6 +56,7 @@ ul {
     border-width: 2px;
     margin-left: 0%;
     margin-right: 12%;
+    margin-bottom: -15px;
 }
 
 button {
@@ -71,6 +80,10 @@ button:hover {
     cursor: pointer;
 }
 
+.submit, .close-form {
+    margin-bottom: 8px;
+}
+
 .add-bookmark-form-section {
     text-align: center;
     margin-top: 20px;
@@ -79,10 +92,17 @@ button:hover {
 #add-bookmark-form {
     color: white;
     background-color: black;
-    margin-top: 20px;
+    margin-top: -30px;
     border-radius: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
+    border-style: outset;
+    border-width: 10px;
+    border-color: whitesmoke;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -160px;
+    margin-left: -167px;
+    z-index: 1;
 }
 
 .add-bookmark-form {
@@ -116,11 +136,29 @@ button:hover {
 }
 
 select {
-    background-color: rgba(255, 255, 255, 0.712);
+    background-color: rgba(255, 255, 255, 0.897);
     border-radius: 5px;
     border: 1px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     height: 25px;
+}
+
+#add-url, #add-description, #add-title {
+    background-color: rgba(255, 255, 255, 0.959);
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    height: 25px;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+#add-description {
+    margin-right: 16px;
+}
+
+#add-title {
+    margin-right: 5px;
 }
 
 select:hover {
@@ -134,6 +172,50 @@ select:focus {
 	color: #222;
 	outline: none;
 }
+
+[type="radio"] {
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px;
+  }
+
+  [type="radio"] + span::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.25em;
+    border-radius: 1em;
+    border: 0.125em solid #fff;
+    box-shadow: 0 0 0 0.15em #000;
+    margin-right: 0.75em;
+    transition: 0.5s ease all;
+  }
+
+  [type="radio"]:checked + span::before {
+    background: orange;
+    box-shadow: 0 0 0 0.25em #000;
+  }
+
+  fieldset label {
+      display: block;
+      margin-bottom: 8px;
+  }
+
+  fieldset {
+    margin-bottom: 10px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  legend {
+      font-size: 20px;
+  }
 
 @media screen and (min-width: 760px) {
     .bookmark-li {

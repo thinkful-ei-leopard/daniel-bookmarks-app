@@ -33,7 +33,6 @@ const listApiFetch = function (...args) {
         desc,
         rating,
     });
-    console.log(newBookmark);
     return listApiFetch(`${BASE_URL}/bookmarks`, {
         method: 'POST',
         headers: {

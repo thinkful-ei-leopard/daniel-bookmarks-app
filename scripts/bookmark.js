@@ -133,7 +133,6 @@ const handleClickOnBookmarkElement = function() {
 
 const handleClearFilterClick = function () {
     $('.filter-section').on('click', '.clear-filter-button', function() {
-        console.log('clear');
         clearFilter();
     });
 }
@@ -178,7 +177,7 @@ const generateBookmarkElement = function(bookmark) {
     return `
 <li class='bookmark-li' data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
-        <a class='url hidden' href=${bookmark.url}>Visit Site</a>
+        <a class='url hidden' target="_blank" href=${bookmark.url}>Visit Site</a>
         <p class='description hidden'>${bookmark.desc}</p>
         <p class='rating'>${stars}</p>
     <button class='delete' type='button'>Delete</button>
