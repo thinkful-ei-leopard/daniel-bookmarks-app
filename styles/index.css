@@ -3,7 +3,12 @@
 }
 
 body {
-    background-image: url('/img/paradise.jpg');
+    background: url('/img/paradise.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Zilla Slab', serif;
 }
 
 header, .filter-section {
@@ -23,21 +28,26 @@ ul {
     list-style: none;
 }
 
+.rating-radio label {
+    color: gold;
+}
+
+.rating {
+    color: gold;
+}
+
 .bookmark-li {
     background-color: rgb(31, 30, 30);
     color: whitesmoke;
     text-align: center;
     border-radius: 20px;
     opacity: .9;
-}
-
-.bookmark-li {
     padding-top:0px;
     padding-bottom: 5px;
     border-color: black;
     border-width: 2px;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 0%;
+    margin-right: 12%;
 }
 
 button {
@@ -48,6 +58,8 @@ button {
     font-size: 15px;
     background-color: rgb(236, 236, 234);
     opacity: 90%;
+    font-family: 'Zilla Slab', serif;
+    font-weight: bold;
 }
 
 button:hover {
@@ -56,6 +68,7 @@ button:hover {
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     background-color: rgb(214, 141, 5);
     transition: all 0.4s ease 0s;
+    cursor: pointer;
 }
 
 .add-bookmark-form-section {
@@ -100,4 +113,31 @@ button:hover {
 .input-list {
     margin-top 5px;
     margin-bottom 5px;
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0.712);
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    height: 25px;
+}
+
+select:hover {
+	border-color: #888;
+}
+
+select:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+
+@media screen and (min-width: 760px) {
+    .bookmark-li {
+        margin-left: 25%;
+        margin-right: 30%;
+    }
 }

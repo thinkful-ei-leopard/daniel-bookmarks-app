@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <title>Daniel's Bookmark Bungalow</title>
     <link href="https://fonts.googleapis.com/css?family=Macondo+Swash+Caps&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
 </head>
 <header>
     <h1>Bookmark Bungalow</h1>
@@ -22,12 +23,12 @@
             <option value=5 >5 Stars</option>
         </select>
         <button class='filter-button' type='submit'>Filter</button>
-        <button class='clear-filter' type="button">Clear Filter</button>
+        <button class='clear-filter-button' type="button">Clear Filter</button>
     </section>
     <section class='add-bookmark-form-section'>
         <button class='open-form' type='button'>New Bookmark</button>
         <form id='add-bookmark-form' class='hidden'>
-            <ul>
+            <ul class='input-list'>
             <li><label for='add-title'>Site Name</label>
             <input id='add-title' type='text' placeholder="e.g. Google" required/></li>
             <li></li><label for='add-url'>URL Link</label>
@@ -35,17 +36,17 @@
             <li></li><label for='add-description'>Description</label>
             <input id='add-description' type='text' placeholder='e.g. Search Engine'/></li>
             </ul>
-            <ul>
-                <label>Rating</label>
-                <li><label for='radio1'>&starf;</label>
+            <ul class="rating-radio">
+                <p>Rating</p>
+                <li><label class='radio-label' for='radio1'>&starf;</label>
                     <input id='radio1' class='add-rating' type='radio' name='add-rating' value=1 checked/></li>
-                <li><label for='radio2'>&starf;&starf;</label>
+                <li><label class='radio-label' for='radio2'>&starf;&starf;</label>
                     <input id='radio2' class='add-rating' type='radio' name='add-rating' value=2 /></li>
-                <li><label for='radio3'>&starf;&starf;&starf;</label>
+                <li><label class='radio-label' for='radio3'>&starf;&starf;&starf;</label>
                     <input id='radio3' class='add-rating' type='radio' name='add-rating' value=3 /></li>
-                <li><label for='radio4'>&starf;&starf;&starf;&starf;</label>
+                <li><label class='radio-label' for='radio4'>&starf;&starf;&starf;&starf;</label>
                     <input id='radio4' class='add-rating' type='radio' name='add-rating' value=4 /></li>
-                <li><label for='radio5'>&starf;&starf;&starf;&starf;&starf;</label>
+                <li><label class='radio-label' for='radio5'>&starf;&starf;&starf;&starf;&starf;</label>
                     <input id='radio5' class='add-rating' type='radio' name='add-rating' value=5 /></li>
             </ul>
             <button class='submit' type='submit'>Submit</button>

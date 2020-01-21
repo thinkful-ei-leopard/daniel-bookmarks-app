@@ -49,6 +49,7 @@ const renderError = function () {
 
 const clearError = function () {
     $('.error-container').empty();
+    store.error = null;
 };
 
 const handleCancelErrorClick = function() {
@@ -81,11 +82,8 @@ const handleNewBookmarkSubmission = function() {
         const newBookmarkUrl = $('#add-url').val();
         const newBookmarkDescription = $('#add-description').val();
         const newBookmarkRating = $("input[name='add-rating']:checked").val();
-        console.log(newBookmarkRating);
-        console.log(newBookmarkDescription);
         api.createBookmark(newBookmarkTitle, newBookmarkUrl, newBookmarkDescription, newBookmarkRating)
             .then((newBookmark) => {
-                console.log(newBookmark)
                 store.addBookmark(newBookmark)
                 $('#add-bookmark-form').addClass('hidden');
             render();
@@ -103,7 +101,6 @@ const handleBookmarkDeleteClick = function() {
     $('.bookmark-section').on('click', '.delete', function (event) {
         event.preventDefault();
         const id = getItemIdFromBookmark(event.currentTarget);
-        console.log(id);
         api.deleteBookmark(id)
         .then (() => {
             store.findAndDelete(id);
@@ -126,7 +123,6 @@ const handleBookmarkFilter = function() {
 //handles click on bookmark-li element
 const handleClickOnBookmarkElement = function() {
     $('.bookmark-ul').on('click', '.bookmark-li', function() {
-        event.preventDefault();
         let url = $(this).find('.url');
         reveal(url);
         let description = $(this).find('.description');
@@ -134,6 +130,18 @@ const handleClickOnBookmarkElement = function() {
     });
     render();
 };
+
+const handleClearFilterClick = function () {
+    $('.filter-section').on('click', '.clear-filter-button', function() {
+        console.log('clear');
+        clearFilter();
+    });
+}
+
+const clearFilter = function() {
+    isUsingFilter=false;
+    render();
+}
 
 const reveal =  function(element) {
     element.removeClass('hidden');
@@ -191,6 +199,7 @@ const bindEventListeners = function () {
     handleFormCloseClick();
     handleClickOnBookmarkElement();
     handleCancelErrorClick();
+    handleClearFilterClick();
 };
 
 export default {
