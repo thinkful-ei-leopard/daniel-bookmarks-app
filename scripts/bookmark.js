@@ -12,9 +12,9 @@ const render = function () {
     let bookmarksListString = "";
     if (isUsingFilter) {
         let bookmarks = store.bookmarks.filter(function(bookmark) {
-            bookmark.rating >= minRating;
-            bookmarksListString = generateBookmarkString(bookmarks);
+            return bookmark.rating >= minRating;
         });
+        bookmarksListString = generateBookmarkString(bookmarks);
     }
     else {
         bookmarksListString = generateBookmarkString(store.bookmarks);
