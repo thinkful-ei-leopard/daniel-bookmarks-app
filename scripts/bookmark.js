@@ -3,12 +3,22 @@
 import store from './store.js';
 import api from './api.js';
 
+let isUsingFilter = false;
+let minRating = $('#rating-select').val();
 
 //renders DOM
 const render = function () {
     renderError();
-    let bookmarks = [...store.bookmarks];
-    const bookmarksListString = generateBookmarkString(bookmarks);
+    let bookmarksListString = "";
+    if (isUsingFilter) {
+        let bookmarks = store.bookmarks.filter(function(bookmark) {
+            bookmark.rating >= minRating;
+            bookmarksListString = generateBookmarkString(bookmarks);
+        });
+    }
+    else {
+        bookmarksListString = generateBookmarkString(store.bookmarks);
+    };
     $('.bookmark-ul').html(bookmarksListString);
 };
 
@@ -72,6 +82,7 @@ const handleNewBookmarkSubmission = function() {
         const newBookmarkDescription = $('#add-description').val();
         const newBookmarkRating = $("input[name='add-rating']:checked").val();
         console.log(newBookmarkRating);
+        console.log(newBookmarkDescription);
         api.createBookmark(newBookmarkTitle, newBookmarkUrl, newBookmarkDescription, newBookmarkRating)
             .then((newBookmark) => {
                 console.log(newBookmark)
@@ -108,7 +119,7 @@ const handleBookmarkDeleteClick = function() {
 //displays bookmarks filtered by rating
 const handleBookmarkFilter = function() {
     $('.filter-section').on('click', '.filter-button', function(event) {
-        store.bookmarks.forEach(bookmark => filterBookmarks(bookmark));
+        filterBookmarks();
     });
 };
 
@@ -129,13 +140,10 @@ const reveal =  function(element) {
 }
 
 //filters Bookmarks based on rating
-const filterBookmarks = function (bookmark) {
-    let minRating = $('#rating-select').val();
-    console.log(bookmark);
-    if (bookmark.rating < minRating) {
-        console.log('oooweee');
-        $('.bookmark-li').addClass('hidden');
-    };
+const filterBookmarks = function () {
+    isUsingFilter=true;
+    minRating = $('#rating-select').val();
+    render();
 };
 
 const makeStars = function(rating) {
@@ -163,7 +171,7 @@ const generateBookmarkElement = function(bookmark) {
 <li class='bookmark-li' data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
         <a class='url hidden' href=${bookmark.url}>Visit Site</a>
-        <p class='description hidden'>${bookmark.description}</p>
+        <p class='description hidden'>${bookmark.desc}</p>
         <p class='rating'>${stars}</p>
     <button class='delete' type='button'>Delete</button>
 </li>`

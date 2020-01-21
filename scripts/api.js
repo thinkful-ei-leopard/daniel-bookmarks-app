@@ -26,11 +26,11 @@ const listApiFetch = function (...args) {
       });
   };
 
-  function createBookmark(title, url, description, rating) {
+  function createBookmark(title, url, desc, rating) {
     let newBookmark = JSON.stringify({
         title,
         url,
-        description,
+        desc,
         rating,
     });
     console.log(newBookmark);

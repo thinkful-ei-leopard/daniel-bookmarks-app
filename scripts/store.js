@@ -14,7 +14,7 @@ const findById = function (id) {
 };
 
 //finds bookmark in store and deletes
-const findAndDelete = function () {
+const findAndDelete = function (id) {
   this.bookmarks = this.bookmarks.filter(currentBookmark => currentBookmark.id !==id);
 };
 
