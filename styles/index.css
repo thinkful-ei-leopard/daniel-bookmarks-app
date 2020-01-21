@@ -173,6 +173,11 @@ select:focus {
 	outline: none;
 }
 
+.rating-radio label {
+    text-align: left;
+    margin-left: 30px;
+}
+
 [type="radio"] {
     border: 0; 
     clip: rect(0 0 0 0); 
